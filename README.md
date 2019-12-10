@@ -1,4 +1,8 @@
 
+## Cluster overview
+
+![k8s cluster overview](k8sdiagram.png)
+
 
 ## Resources
 
