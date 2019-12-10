@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-svc
+  namespace: default
+spec:
+  ports:
+  - port: 3131
+    targetPort: 3001
+  selector:
+    run: event
+  type: ClusterIP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: facility-svc
+  namespace: default
+spec:
+  ports:
+  - port: 3232
+    targetPort: 3002
+  selector:
+    run: facility
+  type: ClusterIP
