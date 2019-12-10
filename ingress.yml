@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: softfall2019-si.software
+    http:
+      paths:
+      - path: /nginx
+        backend:
+          serviceName: nginx-svc
+          servicePort: 8080
+      - path: /catering(/|$)(.*)
+        backend:
+          serviceName: catering-svc
+          servicePort: 3030
+          
+      - path: /event(/|$)(.*)
+        backend:
+          serviceName: event-svc
+          servicePort: 3131
+      - path: /facility(/|$)(.*)
+        backend:
+          serviceName: facility-svc
+          servicePort: 3232
